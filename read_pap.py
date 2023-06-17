@@ -23,3 +23,6 @@ for file in os.listdir(folder_name):
 
         df = pd.read_csv(file_path,  encoding='latin1', skiprows=start_line,  skipinitialspace=True, quotechar='"') # TODO: skiprows=12 is a hack, find a better way
         print(df.head())
+
+
+
