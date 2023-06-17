@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 import read_pap
-import pixel_to_mm
+import pixel_mm_transform
 
 
 
