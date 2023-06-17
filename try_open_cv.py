@@ -1,11 +1,17 @@
+from PIL import Image
+import numpy as np
+
+# Read the original image
+img = Image.open("5RC_6009.jpg")
+
+# Display the image
+img.show()
+img = np.array(img)
+
+
 import cv2
 
 # Read the original image
-img = cv2.imread(r"Kontrol Kart 1\5RC_6007.jpg")
-
-# Display original image
-cv2.imshow('Original', img)
-cv2.waitKey(0)
  
 # Convert to graycsale
 img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
