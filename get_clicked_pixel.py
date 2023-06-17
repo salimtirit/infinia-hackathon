@@ -16,8 +16,10 @@ def onclick(event):
         ax.imshow(modified_image)
         plt.draw()
 
+image_path = r"Kontrol Kart 1\5RC_6007.jpg"
+
 # Read the image
-image = plt.imread(r"Kontrol Kart 1\5RC_6009.jpg")
+image = plt.imread(image_path)
 
 # Display the image
 fig, ax = plt.subplots()
