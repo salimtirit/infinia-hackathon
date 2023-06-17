@@ -10,7 +10,7 @@ def find_table_start(csv_file):
             print(line_num)
             print(line)
             print(len(line.strip()))
-            if line.strip():  # Skip empty lines
+            if len(line.strip().split(',')) > 1:  # Skip empty lines
                 # Check if the line can be parsed as a CSV row
                 try:
                     pd.read_csv(io.StringIO(line))
