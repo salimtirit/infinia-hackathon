@@ -13,16 +13,16 @@ jpg image format is a compressed format, so this will yield diff even for identi
 def label_board_image(image_array, board):
     for component in board.component_list:
         x,y = mm_to_pixel(component.x,component.y, board)
-        x = int(component.x)
-        y = int(component.y)
+        x = int(component.x) * 10
+        y = int(component.y) * 10
+        print(f"x: {x}, y:{y}")
         label_text = component.designator
 
         # Define the font settings
-        font_scale = 3.5
+        font_scale = 1
         font = cv2.FONT_HERSHEY_SIMPLEX
-        font_color = (0, 0, 255)  # White color
-        thickness = 10
-        thickness = 2
+        font_color = (0, 255, 0)  # White color
+        thickness = 1
 
         # Add the label to the image
         image_array = cv2.putText(image_array, label_text, (x, y), font, font_scale, font_color, thickness)
@@ -31,7 +31,7 @@ def label_board_image(image_array, board):
     new_width = int(image_array.shape[1] / 6)
     new_height = int(image_array.shape[0] / 6)
     image_array = cv2.resize(image_array, (new_width, new_height))
-    cv2.imshow('Labeled Image', image_array)
+    cv2.imwrite('Labeled Image.png', image_array)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
     
@@ -39,7 +39,7 @@ def label_board_image(image_array, board):
 
 
 a = paps_to_pandas_tables()
-label_board_image(cv2.imread("5RC_6007.jpg", cv2.IMREAD_GRAYSCALE), a["Ahbap_PCB"])
+label_board_image(pixel_to_mm("5RC_6007.jpg", a["Ahbap_PCB"]), a["Ahbap_PCB"])
 
 
 
