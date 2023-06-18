@@ -3,16 +3,26 @@ from tkinter import filedialog
 from PIL import Image, ImageTk
 
 number_of_pixels = 1
+number_of_images_selected = 0
 
 selected_pixels = []
 selected_pixels_mm = []
 
 def upload_image():
+    global number_of_images_selected
+    number_of_images_selected += 1
+    # Open a file dialog to select an image
     filepath = filedialog.askopenfilename(filetypes=[('Image Files', '*.png;*.jpg;*.jpeg')])
     # enable the select pixel button
     global number_of_pixels
     number_of_pixels = 1
     select_pixel_button.config(state=tk.NORMAL)
+
+    if number_of_images_selected == 2:
+        # change the text of the continue button
+        continue_button.config(text='Finish')
+        
+
     return filepath
 
 def open_image():
@@ -168,8 +178,8 @@ entry3_2 = tk.Entry(root)
 entry3_2.grid(row=3, column=4, sticky='ne')
 
 # continue 
-upload_button = tk.Button(root, text='Continue', command=continue_to_next_image, bg='white', fg='brown', font=('helvetica', 9, 'bold'))
-upload_button.grid(row=4, column=0, sticky='nsew')
+continue_button = tk.Button(root, text='Continue', command=continue_to_next_image, bg='white', fg='brown', font=('helvetica', 9, 'bold'))
+continue_button.grid(row=4, column=0, sticky='nsew')
 
 
 # Run the application
