@@ -1,8 +1,8 @@
 import os
 import pandas as pd
-from main_code import Board
+#from main_code import Board
 import io
-
+from classes import Board
 
 folder_name = "Kontrol Kart 1"
 
