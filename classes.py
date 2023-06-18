@@ -26,12 +26,20 @@ class Board:
         
 
     def __fill_transform_metadata__(self):
-        self.x1_mm = self.component_list[0].x
-        self.x2_mm = self.component_list[1].x
-        self.x3_mm = self.component_list[2].x
+        self.x1_mm = 136.3308 #self.component_list[0].x
+        self.x2_mm = 17.8618 #self.component_list[1].x
+        self.x3_mm = 31.1 #self.component_list[2].x
         
-        self.y1_mm = self.component_list[0].y
-        self.y2_mm = self.component_list[1].y
-        self.y3_mm = self.component_list[2].y
+        self.y1_mm = 121.272  #self.component_list[0].y
+        self.y2_mm = 24.2183 #self.component_list[1].y
+        self.y3_mm = 114.575 #self.component_list[2].y
+
+        print(f"Requested components: {self.component_list[0].designator}, {self.component_list[1].designator}, {self.component_list[2].designator}")
 
         #TODO: ask for self.x1,y1,x2,y2,x3,y3 here via prompt
+        self.x1 = 5950
+        self.y1 = 1356
+        self.x2 = 2889
+        self.y2 = 3876
+        self.x3 = 3229
+        self.y3 = 1530
