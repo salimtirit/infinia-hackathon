@@ -2,6 +2,13 @@ import numpy as np
 import cv2
 
 def pixel_to_mm(image_path, x1, y1, x2, y2, x3, y3, x1_mm, y1_mm, x2_mm, y2_mm, x3_mm, y3_mm) -> np.ndarray:
+    x1_mm = x1_mm * 10
+    y1_mm = y1_mm * 10
+    x2_mm = x2_mm * 10
+    y2_mm = y2_mm * 10
+    x3_mm = x3_mm * 10
+    y3_mm = y3_mm * 10
+
     # Pixel coordinates of reference points
     pixel_coords = np.array([[x1, y1], [x2, y2], [x3, y3]], dtype=np.float32)
 
